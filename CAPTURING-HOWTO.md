@@ -1,14 +1,14 @@
-# How to capture a Tiktok post using Browsertrix crawler
+# How to capture a TikTok post using Browsertrix crawler
 
-There are many different tools available that create web archives, but currently, the Browsertrix suite has the most affordances for capturing social media posts. Chiefly among these:
+There are many different tools available that create web archives, but currently, the [Browsertrix](https://browsertrix.com/) suite has the most affordances for capturing social media posts. Chiefly among these:
 
-1. A suite of custom scripts to aid compatability with social media sites and facilitate captures called Browsertrix Behaviors. In the case of TikTok, Browsertrix Behaviors knows how to automatically expand comment threads and load additional comments beyond what shows in the browser when a video loads.
+1. A suite of custom scripts to aid compatability with social media sites and facilitate captures called [Browsertrix Behaviors](https://github.com/webrecorder/browsertrix-behaviors). In the case of TikTok, Browsertrix Behaviors knows how to automatically expand comment threads and load additional comments beyond what shows in the browser when a video loads.
 
 2. A facility for logging in an automated browser so that CAPCHAs can be prevented.
 
 3. A browser plugin that allows someone to create a web archive without any expertise in running web archiving software.
 
-Worth noting is the Scoop project from the Havard Library Innovation Lab, which previously was deployed in an experimental capacity for archiving Twitter/X posts. However, the current primary use case for this software does not require facilitating site logins, and without that, it can be difficult to evade CAPTCHAs on tiktok.com.
+Worth noting is the [Scoop](https://github.com/harvard-lil/scoop) project from the [Harvard Library Innovation Lab](https://lil.law.harvard.edu/), which previously was deployed in an experimental capacity for archiving Twitter/X posts. However, the current primary use case for this software does not require facilitating site logins, and without that, it can be difficult to evade CAPTCHAs on tiktok.com.
 
 ## Performing a web capture
 
@@ -26,7 +26,7 @@ Worth noting is the Scoop project from the Havard Library Innovation Lab, which 
 
 Setting up captures from the the command line is a two-step process. First, you
 
-0. Install Docker or Docker Desktop, depending on your platform.
+0. Install [Docker](https://docs.docker.com/engine/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/), depending on your platform.
 
 #### Creating a browser profile
 
@@ -78,3 +78,5 @@ Here's an explanation of what those arguments mean:
 - `--behaviorTimeout 6000` This gives Browsertrix a very long time to expand all the comments on the page and save them to the archive (100 minutes). Setting this to an arbitrarily large number like this just ensures it can collect whatever there are. If there are few comments, it will complete sooner. If you rather not wait around for comments, you can reduce this number, and Browsertrix will collect what comments it can in the time given.
 
 - `--text final-to-warc` This tells Browsertrix to save all the text on the page (including the comments) at the end of the capture process to a file in the archive.
+
+Browsertrix is also available as a hosted service at [browsertrix.com](https://browsertrix.com/).

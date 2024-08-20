@@ -71,7 +71,7 @@ Here's an explanation of what those arguments mean:
 
 - `--generateWACZ` A WACZ is a Zip file-based, indexed version of a Web archive that is easier to play back later.
 
-- `--screencastPort 9999` If you direct your browser to [http://localhost:9999](http://localhost:9999) while the capturing is happening, you'll be able to watch the Browsertrix engine at work, expanding the comments and scrolling the page. This can also be helpful for diagnosing things when things go wrong.
+- `--screencastPort 9999` If you direct your browser to [http://localhost:9999](http://localhost:9999) while the capturing is happening, you'll be able to watch the Browsertrix engine at work, expanding the comments and scrolling the page. This can also be helpful for diagnosing things when things go wrong. A typical thing to watch for is either the login expired, or the UI is presenting a CAPTCHA.
 
 - `--profile /crawls/profiles/profile.tar.gz` This tells Browsertrix where to find the login information you saved will show up in the Docker container.
 

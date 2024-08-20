@@ -1,4 +1,4 @@
-# social-media-proof-of-concept
+# Social Media Repository Proof of Concept
 
 This is a collection of information that DPLA has collated from investigations related to a series of grants from Netgain Partners and the Sloan Foundation about how libraries could play a role in social media research by archiving posts for later use.
 
@@ -20,7 +20,7 @@ Modern web archives are stored in a ISO-standardized file type called [WARC](<ht
 
 ## Capturing
 
-A howto for using web archiving tools to capture social media posts, including those that use video, is available in [CAPTURING-HOWTO.md](CAPTURING-HOWTO.md). Our initial proof of concept is for Tiktok video pages, however, the same
+A howto for using web archiving tools to capture social media posts, including those that use video, is available in [CAPTURING-HOWTO.md](CAPTURING-HOWTO.md). Our initial proof of concept is for TikTok video pages, however, the same
 tools and practices can be used on other social media sites as well.
 
 ## Playback

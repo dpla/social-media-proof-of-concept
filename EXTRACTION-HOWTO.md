@@ -1,5 +1,11 @@
 # Extracting and working with web archives
 
+Note: This guide assumes you're using a Mac or a Linux system, and are relatively familiar with the command line and installing command line software.
+
+The intent is to show the technical feasibility of using web archiving as the primary source asset for an archive of TikTok posts. We'll step through how to extract assets from the archive in order to serve search, discovery, and access use cases.
+
+## Contents of the `crawls` directory
+
 If you archived a web page according to the "from the command line" [CAPTURING-HOWTO](CAPTURING-HOWTO.md) guide, you should end up with a directory named `crawls` that contains two subfolders:
 
 - The `profiles` directory contains the login credentials that you stored when you logged in to TikTok in Browsertrix. This is only useful for additional capture sessions.
@@ -16,14 +22,38 @@ Inside each subfolder of `collections`, you'll find a few files:
 
 - An `archive` directory that contains two [WARC](<https://en.wikipedia.org/wiki/WARC_(file_format)>) (web archive) files.
 
+## Extracting text and video
+
 The WARC with the `text` prefix contains the text that was scraped out of the page after the comments were loaded. You can see the contents by running a command like:
 
 > gzcat text-20240814180920377.warc.gz
 
 The other WARC, which begins with the label `rec`, contains the data captured from the web session.
 
-The included [extraction.py](extraction.py) script can extract a video file from the WARC. It does this by cycling through the .mp4 entries in the WARC and saving them out as independent video files. Generally speaking,
+The included [extraction.py](extraction.py) script can extract a video file from the WARC. It does this by cycling through the .mp4 entries in the WARC and saving them out as independent video files. The video extraction script requires that `warcio` is installed, you can do so by running `pip install warcio` or `pip3 install warcio`.
 
-ffmpeg -i input.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 2 output.wav
+## Creating a transcript for search indexing
 
-./main -m /Users/michael/github/whisper.cpp/models/ggml-large-v3.bin -f ~/crawls/collections/crawl-20240814180624500/archive/output.wav
+The next step is to extract the audio track of the video for transcription. Install `ffmpeg` and run a command like:
+
+> ffmpeg -i input.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 2 output.wav
+
+Next, we'll get a transcript based on this audio track. We're using Whisper.cpp because it supports GPUs on ARM Macs with zero configuration or setup, which greatly speeds transcription. Download [whisper.cpp](https://github.com/ggerganov/whisper.cpp), change into the directory, and run these commands to set it up:
+
+> make
+> bash ./models/download-ggml-model.sh base
+
+Whisper.cpp is ready to run. The following command will generate a transcript from the audio (edit the path to the .wav file to match yours):
+
+> ./main -m models/ggml-large-v3.bin -f ~/crawls/collections/crawl-20240814180624500/archive/output.wav
+
+This will print the output to the console as part of the logging output, but using the switch `-oj` will write a .json file with the content to the same folder as the .wav. There are more formatting options you can peruse with the `-h` switch.
+
+## Conclusion
+
+With techniques like these, it is easy to envision how an archive of TikToks that were collected using web archiving tools could be the primary asset in a repository that allowed for a number of secondary use cases, such as:
+
+- Viewing the posts in an embedded WACZ viewer.
+- Playing the video in a player outside the primary interface.
+- Searching and discovering posts via transcriptions of the audio or keywords in comments.
+- Performing analytical workflows on the transcriptions and comments to discover trends.

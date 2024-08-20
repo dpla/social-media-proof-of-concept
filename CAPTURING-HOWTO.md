@@ -2,7 +2,7 @@
 
 There are many different tools available that create web archives, but currently, the [Browsertrix](https://browsertrix.com/) suite has the most affordances for capturing social media posts. Chiefly among these:
 
-1. A suite of custom scripts to aid compatability with social media sites and facilitate captures called [Browsertrix Behaviors](https://github.com/webrecorder/browsertrix-behaviors). In the case of TikTok, Browsertrix Behaviors knows how to automatically expand comment threads and load additional comments beyond what shows in the browser when a video loads.
+1. A suite of custom scripts to aid compatibility with social media sites and facilitate captures called [Browsertrix Behaviors](https://github.com/webrecorder/browsertrix-behaviors). In the case of TikTok, Browsertrix Behaviors knows how to automatically expand comment threads and load additional comments beyond what shows in the browser when a video loads.
 
 2. A facility for logging in an automated browser so that CAPCHAs can be prevented.
 
@@ -15,7 +15,7 @@ Worth noting is the [Scoop](https://github.com/harvard-lil/scoop) project from t
 ### ... in a browser
 
 1. In a Chrome-based browser, add the [Webrecorder ArchiveWeb.page Extension](https://chromewebstore.google.com/detail/webrecorder-archivewebpag/fpeoodllldobpkbkabpblcfaogecpndd).
-2. Browse to [Tiktok](https://tiktok.com) and log in normally. Complete any CAPTCHA that appears.
+2. Browse to [TikTok](https://tiktok.com) and log in normally. Complete any CAPTCHA that appears.
 3. Navigate to a video page you'd like to archive.
 4. In the Extensions button next to the URL bar, click on Webrecorder ArchiveWeb.page extension, check the Autopilot checkbox, and then click Start Archiving.
 5. You will observe the extension automatically playing the video, as well as automatically scrolling the web page down to allow content to be loaded into view. Additionally, the autopilot feature will automatically unfurl the comment threads so they are recorded as well.
@@ -37,13 +37,13 @@ Docker will download the Browsertrix image before running it, which will take a 
 
 `{"timestamp":"2024-08-13T16:54:33.537Z","logLevel":"info","context":"general","message":"Loaded!","details":{}}`
 
-It's important to use the URL of an actual TikTok video page, to ensure you trigger any CAPCHAs that may be presented, so you can solve them while Browsertrix is watching.
+It's important to use the URL of an actual TikTok video page, to ensure you trigger any CAPTCHAs that may be presented, so you can solve them while Browsertrix is watching.
 
 2. Browse to [http://localhost:9223/](http://localhost:9223/), complete any CAPCHA that appears, and login in the web streaming interface that appears in the web page.
 
 3. Click Create Profile.
 
-This process saves a login session in a cookie that Browsertrix will be able to access later. You should only need to do steps 1-3 periodically if you are logged out from the Tiktok web site.
+This process saves a login session in a cookie that Browsertrix will be able to access later. You should only need to do steps 1-3 periodically if you are logged out from the Tiktok website.
 
 #### Capturing a page
 

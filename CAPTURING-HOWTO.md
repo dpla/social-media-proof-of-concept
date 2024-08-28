@@ -4,7 +4,7 @@ There are many different tools available that create web archives, but currently
 
 1. A suite of custom scripts to aid compatibility with social media sites and facilitate captures called [Browsertrix Behaviors](https://github.com/webrecorder/browsertrix-behaviors). In the case of TikTok, Browsertrix Behaviors knows how to automatically expand comment threads and load additional comments beyond what shows in the browser when a video loads.
 
-2. A facility for logging in an automated browser so that CAPCHAs can be prevented.
+2. A facility for logging in an automated browser so that CAPTCHAs can be prevented.
 
 3. A browser plugin that allows someone to create a web archive without any expertise in running web archiving software.
 

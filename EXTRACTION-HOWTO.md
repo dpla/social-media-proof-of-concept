@@ -46,7 +46,7 @@ The next step is to extract the audio track of the video for transcription. Inst
 
 It is convenient to save the `output.wav` in the same `archive` directory as the other files.
 
-Next, we'll get a transcript based on this audio track. We're using `Whisper.cpp` because it supports GPUs on ARM Macs with zero configuration or setup, which greatly speeds transcription. Download [whisper.cpp](https://github.com/ggerganov/whisper.cpp) via `git clone`, change into that project directory, and run these commands to set it up:
+Next, we'll get a transcript based on this audio track. We're using `Whisper.cpp` because it supports GPUs on ARM Macs with zero configuration or setup, which greatly speeds transcription. Download [whisper.cpp](https://github.com/ggerganov/whisper.cpp) via `git clone https://github.com/ggerganov/whisper.cpp.git`, change into that project directory, and run these commands to set it up:
 
 > make
 > bash ./models/download-ggml-model.sh base

@@ -4,7 +4,7 @@ There are many different tools available that create web archives, but currently
 
 1. A suite of custom scripts to aid compatibility with social media sites and facilitate captures called [Browsertrix Behaviors](https://github.com/webrecorder/browsertrix-behaviors). In the case of TikTok, Browsertrix Behaviors knows how to automatically expand comment threads and load additional comments beyond what shows in the browser when a video loads.
 
-2. A facility for logging in an automated browser so that CAPCHAs can be prevented.
+2. A facility for logging in an automated browser so that CAPTCHAs can be prevented.
 
 3. A browser plugin that allows someone to create a web archive without any expertise in running web archiving software.
 
@@ -15,12 +15,13 @@ Worth noting is the [Scoop](https://github.com/harvard-lil/scoop) project from t
 ### ... in a browser
 
 1. In a Chrome-based browser, add the [Webrecorder ArchiveWeb.page Extension](https://chromewebstore.google.com/detail/webrecorder-archivewebpag/fpeoodllldobpkbkabpblcfaogecpndd).
-2. Browse to [TikTok](https://tiktok.com) and log in normally. Complete any CAPTCHA that appears.
+2. Browse to [TikTok](https://tiktok.com) and log in normally. Complete any CAPTCHA that appears. You can also collect a limited amount of data without first logging in.
 3. Navigate to a video page you'd like to archive.
 4. In the Extensions button next to the URL bar, click on Webrecorder ArchiveWeb.page extension, check the Autopilot checkbox, and then click Start Archiving.
 5. You will observe the extension automatically playing the video, as well as automatically scrolling the web page down to allow content to be loaded into view. Additionally, the autopilot feature will automatically unfurl the comment threads so they are recorded as well.
 6. Technically, the recording process can be interrupted at any time, however, you most likely will want to allow all the content to load first.
 7. Once the browser stops loading the comments, click the Stop Archiving button.
+8. To view your captures, you can click the Home icon on the browser extension. From this page, you can download your session.
 
 ### ... from the command line
 
@@ -39,7 +40,7 @@ Docker will download the Browsertrix image before running it, which will take a 
 
 It's important to use the URL of an actual TikTok video page, to ensure you trigger any CAPTCHAs that may be presented, so you can solve them while Browsertrix is watching.
 
-2. Browse to [http://localhost:9223/](http://localhost:9223/), complete any CAPCHA that appears, and login in the web streaming interface that appears in the web page.
+2. Browse to [http://localhost:9223/](http://localhost:9223/) on a Chromium-based browser, complete any CAPTCHA that appears, and login in the web streaming interface that appears in the web page.
 
 3. Click Create Profile.
 
@@ -47,9 +48,11 @@ This process saves a login session in a cookie that Browsertrix will be able to 
 
 #### Capturing a page
 
-Once you have a login set up, the following command will capture a TikTok:
+Once you have a login set up, the following command will capture a TikTok video:
 
 > docker run -p 9999:9999 -v $PWD/crawls/profiles:/crawls/profiles -v $PWD/crawls:/crawls/ -it webrecorder/browsertrix-crawler crawl --url <URL OF VIDEO PAGE> --scopeType page --generateWACZ --screencastPort 9999 --profile /crawls/profiles/profile.tar.gz --behaviorTimeout 6000 --text final-to-warc`
+
+It's convenient to keep an eye on the archiving process by opening `localhost:9999` because then you will be able to bypass any CAPTCHAs that appear. Note the capture will not capture all comments on a clip if there are more than a certain number, although it will certainly do up to several hundred.
 
 Here's an explanation of what those arguments mean:
 

@@ -8,7 +8,7 @@ While many types of web scraping are adequate for preserving social media posts 
 
 The biggest benefit to using a modern web archiving stack to preserve social media posts is that one can do as much as possible to preserve the overall context and user experience of the social media post at the point of capture.
 
-While scraping the video, photo, textural content that constitutes the body of the post helps future generations understand the main "text" of the post, future viewers may want to study the context in which the post was presented. Ephemera like related posts, comments, or even the graphical presentation of the post may be relevant for future study. Using a facility for capturing these posts that preserves as much as possible the contemporaneous experience of interacting with the web site makes these alternate modes of inquiry possible.
+Even though scraping the video, photo, and textural content that constitutes the body of the post helps future generations understand the main "text" of the post, future viewers may want to study the context in which the post was presented. Ephemera like related posts, comments, or even the graphical presentation of the post may be relevant for future study. Using a facility for capturing these posts that preserves as much as possible the contemporaneous experience of interacting with the web site makes these alternate modes of inquiry possible.
 
 ## What are web archives?
 

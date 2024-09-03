@@ -52,7 +52,7 @@ Once you have a login set up, the following command will capture a TikTok video:
 
 > docker run -p 9999:9999 -v $PWD/crawls/profiles:/crawls/profiles -v $PWD/crawls:/crawls/ -it webrecorder/browsertrix-crawler crawl --url <URL OF VIDEO PAGE> --scopeType page --generateWACZ --screencastPort 9999 --profile /crawls/profiles/profile.tar.gz --behaviorTimeout 6000 --text final-to-warc`
 
-It's convenient to keep an eye on the archiving process by opening `localhost:9999` because then you will be able to bypass any CAPTCHAs that appear. Note the capture will not capture all comments on a clip if there are more than a certain number, although it will certainly do up to several hundred.
+It's convenient to keep an eye on the archiving process by opening `localhost:9999` because then you will be able to recognize any CAPTCHAs that appear. Note the capture may not capture all comments on a clip if there are more than a certain number, although it will certainly do up to several hundred.
 
 Here's an explanation of what those arguments mean:
 
